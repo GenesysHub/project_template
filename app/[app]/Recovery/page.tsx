@@ -1,14 +1,20 @@
 'use client';
 
 import { observer } from '@legendapp/state/react';
+import { Alert, Box, Card, Code, Divider, Stack } from '@mantine/core';
+
+//core
 import { router$ } from '@genesyshub/core/core/Router/router';
 import { downloadData, getApp } from '@genesyshub/core/core/utils';
-import { Alert, Box, Card, Code, Divider, Stack } from '@mantine/core';
 import { window$ } from '@genesyshub/core/core/Router/window';
-import { ActiveButton } from '@genesyshub/core/UI/ActiveButton';
-import { InputEditor } from '@genesyshub/core/UI/InputEditor';
-import Button from '@genesyshub/core/UI/Button';
-import System from '@genesyshub/core/apps/System';
+
+//apps
+import System from 'apps/System';
+
+//ui
+import { ActiveButton } from '@genesyshub/core/ui/components/ActiveButton';
+import Button from '@genesyshub/core/ui/components/Button';
+import { InputEditor } from '@genesyshub/core/ui/components/InputEditor';
 
 //#todo, automap apps
 const apps = [System];

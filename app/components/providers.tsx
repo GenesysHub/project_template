@@ -4,6 +4,8 @@ import { observer } from '@legendapp/state/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createTheme, MantineProvider } from '@mantine/core';
 import { ReactNode } from 'react';
+
+//core
 import { config$ } from '@genesyshub/core/core/constants';
 
 const queryClient = new QueryClient();

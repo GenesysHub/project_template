@@ -13,6 +13,5 @@ bun.lock
 
 .npmrc
 next-env.d.ts
-next.config.ts
 
 public

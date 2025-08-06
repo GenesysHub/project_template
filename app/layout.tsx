@@ -1,10 +1,12 @@
+//core
 import '@genesyshub/core/styles';
 
 import { ReactNode } from 'react';
 import { Providers } from './components/providers';
-import SplashCursor from '@genesyshub/core/UI/ReactBits/splashcursor';
-/* import { Notifications } from '@mantine/notifications';
- */
+
+//ui
+import SplashCursor from '@genesyshub/core/ui/components/ReactBits/splashcursor';
+
 const metadata = {
   title: 'Your App',
 };

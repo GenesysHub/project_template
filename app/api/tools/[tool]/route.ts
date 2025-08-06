@@ -1,5 +1,7 @@
-import { routes } from '@genesyshub/tools/route';
 import { NextRequest, NextResponse } from 'next/server';
+
+//tools
+import { routes } from '@genesyshub/tools/route';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 

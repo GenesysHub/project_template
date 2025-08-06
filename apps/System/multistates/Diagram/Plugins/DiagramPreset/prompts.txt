@@ -1,0 +1,118 @@
+Excellent point — while the prompts are functional as-is, **including a minimal JSON schema example** with each one will dramatically improve the AI's understanding, especially for grounding output structure, naming conventions, and path references.
+
+Here’s how to enhance each prompt with a **simple, illustrative JSON snippet** that reflects your real data structure, without overwhelming complexity:
+
+---
+
+### ✅ **Enhanced Prompt 1: Instructional Context + Mini Schema**
+
+Add this **JSON snippet** as an example to give structure to the explanation:
+
+```json
+{
+  "apis": [
+    {
+      "config": { "variant": "tool" },
+      "id": "tool1",
+      "inputs": ["object1"],
+      "tools": [
+        {
+          "tool": "fetchUrl",
+          "id": "tool1",
+          "props": {
+            "url": ["object1", "database", "url"],
+            "json": false
+          }
+        }
+      ],
+      "response": [[{ "result": "<html>...</html>" }]]
+    },
+    {
+      "config": { "variant": "object" },
+      "id": "object1",
+      "inputs": ["tool1"],
+      "database": {
+        "url": "https://example.com",
+        "html": ["tool1", "response", 0, 0, "result"]
+      }
+    }
+  ]
+}
+```
+
+🧠 Then, your prompt should say:
+
+> Here's an example of a small pipeline:
+> A tool (`fetchUrl`) reads a URL from an object and stores its response (HTML) back into the same object using observable pathing. The structure includes `id`, `inputs`, `props`, `response`, and proxy values.
+
+---
+
+### ✅ **Enhanced Prompt 2: Mind Map Logic + Expected Output Format**
+
+Append this example to the **end** of the prompt:
+
+> Example output:
+>
+> ```
+> 1. Use an object to store the URL.
+> 2. Use fetchUrl to get HTML using the object.url.
+> 3. Store the result (HTML) into object.html.
+> 4. Use htmlToObject on object.html to extract content.
+> ```
+
+You may also mention:
+
+> Responses are chained via observables (like `["id", "response", 0, 0, "result"]`).
+
+---
+
+### ✅ **Enhanced Prompt 3: Schema Generator + Template Snippet**
+
+Add this **template snippet** above your final instruction:
+
+```json
+{
+  "apis": [
+    {
+      "config": { "variant": "tool" },
+      "id": "toolA",
+      "inputs": ["objectA"],
+      "tools": [
+        {
+          "tool": "htmlToObject",
+          "id": "toolA",
+          "props": {
+            "html": ["objectA", "database", "html"],
+            "compacted": true
+          }
+        }
+      ],
+      "response": [[{ "result": "Parsed content here" }]]
+    },
+    {
+      "config": { "variant": "object" },
+      "id": "objectA",
+      "inputs": ["toolA"],
+      "database": {
+        "html": ["toolFetch", "response", 0, 0, "result"]
+      }
+    }
+  ]
+}
+```
+
+Then say:
+
+> Use this format to structure your output. Populate each tool with a valid `id`, link `inputs`, and route responses via observable paths using the `"response"` object. Positioning and `status` can use placeholder values if unspecified.
+
+---
+
+### ✅ Summary
+
+| Prompt       | Add Example?           | Why?                                 |
+| ------------ | ---------------------- | ------------------------------------ |
+| 1 - Context  | ✅ Yes                  | Shows structure, anchors explanation |
+| 2 - Mind Map | ✅ Optional but helpful | Clarifies what a “step” means        |
+| 3 - Schema   | ✅ Essential            | Ensures valid output format          |
+
+Would you like me to deliver updated final versions of these prompts with the snippets inlined and ready for immediate use?

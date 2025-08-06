@@ -1,15 +1,21 @@
-'use client'
+'use client';
 
 import { Suspense, useEffect } from 'react';
-//import { useUser } from '@clerk/nextjs';
-import System from '@genesyshub/core/apps/System';
-import { /* auth$, */ config$, useInitClientAuth } from '@genesyshub/core/core/constants';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { router$ } from '@genesyshub/core/core/Router/router';
 import { observer } from '@legendapp/state/react';
-import { ComponentLoader } from '@genesyshub/core/UI/ComponentLoader';
-import Client from '@genesyshub/core/UI/App';
-import Example from '@/apps/example';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+
+//apps
+import System from 'apps/System';
+
+//core
+import { /* auth$, */ config$, useInitClientAuth } from '@genesyshub/core/core/constants';
+import { router$ } from '@genesyshub/core/core/Router/router';
+
+//ui
+import { ComponentLoader } from '@genesyshub/core/ui/components/ComponentLoader';
+
+//put this in the core
+import Client from '@genesyshub/core/ui/components/Client';
 
 const SyncRouter = observer(() => {
   const router = useRouter();
@@ -43,10 +49,10 @@ const SyncRouter = observer(() => {
   }, [user]);
 } */
 
-const apps = [System, Example];
+const apps = [System];
 
 export const ClientAuth = observer(({ app }: { app?: string }) => {
-  config$.default.app.set('System')
+  config$.default.app.set('System');
 
   //useSyncUser();
 
