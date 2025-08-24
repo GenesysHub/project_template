@@ -12,7 +12,7 @@
     "check:deps": "depcheck"
   },
   "dependencies": {
-    "@genesyshub/core": "0.2.8",
+    "@genesyshub/core": "^0.2.13",
     "@genesyshub/tools": "^0.1.7",
     "@legendapp/state": "3.0.0-beta.30",
     "@mantine/core": "^8.0.0",

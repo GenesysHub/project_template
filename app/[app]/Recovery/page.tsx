@@ -9,15 +9,15 @@ import { downloadData, getApp } from '@genesyshub/core/core/utils';
 import { window$ } from '@genesyshub/core/core/Router/window';
 
 //apps
-import System from 'apps/System';
+//import System from 'apps/System';
 
 //ui
-import { ActiveButton } from '@genesyshub/core/ui/components/ActiveButton';
-import Button from '@genesyshub/core/ui/components/Button';
-import { InputEditor } from '@genesyshub/core/ui/components/InputEditor';
+import { ActiveButton } from '@genesyshub/ui/components/ActiveButton';
+import Button from '@genesyshub/ui/components/Button';
+import InputEditor from '@genesyshub/ui/components/InputEditorCompact';
 
 //#todo, automap apps
-const apps = [System];
+const apps: any[] = [];
 
 const Recovery = observer(() => {
   const appId = router$.path.get()?.split('/').filter(Boolean);

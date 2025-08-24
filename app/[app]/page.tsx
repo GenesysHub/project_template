@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { ClientAuth } from '../components/ClientSync';
 
 //ui
-import { ComponentLoader } from '@genesyshub/core/ui/components/ComponentLoader';
+import { ComponentLoader } from '@genesyshub/ui/components/ComponentLoader';
 
 export default async function AppPage(props: { params: Promise<{ app: string }> }) {
   const { app } = await props.params;

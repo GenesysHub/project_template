@@ -11,7 +11,7 @@ const pwaConfig = {
 
 const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  transpilePackages: ['@genesyshub/core'],
+  //transpilePackages: ['@genesyshub/core'],
 
   experimental: {
     inlineCss: true,

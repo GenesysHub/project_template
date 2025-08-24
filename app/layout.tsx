@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import { Providers } from './components/providers';
 
 //ui
-import SplashCursor from '@genesyshub/core/ui/components/ReactBits/splashcursor';
+import SplashCursor from '@genesyshub/ui/components/ReactBits/splashcursor';
 
 const metadata = {
   title: 'Your App',
